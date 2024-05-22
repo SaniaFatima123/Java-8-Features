@@ -22,7 +22,8 @@ public class StudentService {
     public ArrayList<Student> feesIncrement(){
         ArrayList<Student> studentList = new ArrayList<>();
         for(Student student1: students){
-             FeesIncrement feesIncrement = (a, b) ->  a + b;
+            //implemented anonymous class or functional interface
+             FeesIncrement feesIncrement = (val1, val2) ->  val1 + val2;
                     long feeIncremented = feesIncrement.test(student1.getFees(), 1000);
                     student1.setFees(feeIncremented);
                    studentList.add((student1));
@@ -32,6 +33,7 @@ public class StudentService {
     public ArrayList<Student> filterStudents(String str){
         ArrayList<Student> filteredList = new ArrayList<>();
         for(Student student: students){
+            //implemented predicate (one kind of funtional interface)
             Predicate<Student> predicate = (st) -> {return st.getStudentName().startsWith(str);};
             if(predicate.test(student)){
                 filteredList.add(student);
