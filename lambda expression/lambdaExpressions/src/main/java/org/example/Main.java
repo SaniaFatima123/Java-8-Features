@@ -18,5 +18,12 @@ public class Main {
             System.out.println("Student name "+student.getStudentName()+" Student roll number "+student.getRoll()+" " +
                     " Student class "+student.getStandard()+" Student new fees "+student.getFees());
         }
+        String str = "P";
+        ArrayList<Student> filteredStudents = studentService.filterStudents(str);
+        System.out.println("All Student after filteration");
+        for(Student student: filteredStudents){
+            System.out.println("Student name "+student.getStudentName()+" Student roll number "+student.getRoll()+" " +
+                    " Student class "+student.getStandard()+" Student new fees "+student.getFees());
+        }
     }
 }
