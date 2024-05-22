@@ -5,13 +5,15 @@ public class Student {
     private int roll;
 
     private int standard;
+    private long fees;
 
     public Student() {
     }
-    public Student(String studentName, int roll, int standard){
+    public Student(String studentName, int roll, int standard, long fees){
         this.studentName = studentName;
         this.roll = roll;
         this.standard = standard;
+        this.fees = fees;
     }
 
     public String getStudentName() {
@@ -38,12 +40,21 @@ public class Student {
         this.standard = standard;
     }
 
+    public long getFees() {
+        return fees;
+    }
+
+    public void setFees(long fees) {
+        this.fees = fees;
+    }
+
     @Override
     public String toString() {
         return "Student{" +
                 "studentName='" + studentName + '\'' +
                 ", roll=" + roll +
-                ", class=" + standard +
+                ", standard=" + standard +
+                ", fees=" + fees +
                 '}';
     }
 }
