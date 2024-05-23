@@ -51,13 +51,25 @@ public class Compare  {
 //
 //        // printing all the name using stream after age comparision
 //        employees.stream().map(x -> x.getAge()).forEach(System.out::println);
+
+        // calling non-static method using method reference
+        Compare obj = new Compare();
+        Thread td = new Thread(obj::startingString);
+        td.start();
      }
 
+
+     // static method
      public static int compareByName(Employee a, Employee b){
         return a.getName().compareTo(b.getName());
      }
 //     public static int compareByAge(Employee a, Employee b){
 //        return a.getAge().compareTo(b.getAge());
 //     }
+
+    // non static method
+    public void startingString() {
+        System.out.println("non static method called");
+    }
 
 }
