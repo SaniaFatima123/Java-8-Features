@@ -54,6 +54,7 @@ public class StreamAPI {
         products.add(new Product(1, "Vivo", 20000));
         products.add(new Product(1, "Oppo", 18000));
         products.add(new Product(1, "Poco", 9000));
+        products.add(new Product(1, "Realme", 9000));
 
         // This line declares a new list named processedData of type List<Integer>.
         // This list will eventually store the extracted prices of the filtered products.
@@ -63,7 +64,21 @@ public class StreamAPI {
                 .map(product -> product.getPrice()).collect(Collectors.toList());
         System.out.println(processedData);
 
-        products.stream().filter(product -> product.getPrice() == 20000)
+        products.stream().filter(product -> product.getPrice() == 18000)
                 .forEach(product -> System.out.println(product.getName()));
+
+        // find max and min price
+        Product productMax = products.stream()
+                .max((product1, product2)->product1.getPrice() > product2.getPrice() ? 1: -1).get();
+        System.out.println(productMax.getPrice());
+
+        Product productMin = products.stream()
+                .min((productA, productB)-> productA.getPrice() > productB.getPrice()? 1: -1).get();
+        System.out.println(productMin.getPrice());
+
+        long coun = products.stream().filter((product)->product.getPrice()==9000).count();
+        System.out.println(coun);
+
+
     }
 }
