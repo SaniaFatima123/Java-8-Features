@@ -5,11 +5,16 @@ public interface Phone {
     String startGame();
     void openMsg();
 
+    //default method *****
     default String startMusic(){
         return "Music started";
     }
     default void addContact(){
         System.out.println("Contact added");
+    }
+    //static method ******
+    static int cal(int a, int b){
+        return a+b;
     }
 }
 class Smartphone implements Phone{
@@ -35,6 +40,7 @@ class Smartphone implements Phone{
         smartphone.openMsg();
         System.out.println(smartphone.startMusic());
         smartphone.addContact();
+        System.out.println(Phone.cal(5, 5));
 
     }
 
