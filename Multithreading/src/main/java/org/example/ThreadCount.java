@@ -19,13 +19,14 @@ public class ThreadCount extends Thread{
         System.out.println("Thread terminating");
     }
 }
+
 class Multithreading{
     public static void main(String[] args) {
         ThreadCount count = new ThreadCount();
         try {
             if (count.isAlive()) {
                 System.out.println("Main method thread will be alive until child thread is alive");
-//                count.run();
+                System.out.println("************** "+Thread.currentThread().getName());
                 Thread.sleep(2500);
 
             }
